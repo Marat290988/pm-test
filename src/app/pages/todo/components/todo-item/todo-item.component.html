@@ -1,0 +1,8 @@
+<div class="grid">
+  <div>{{index}}</div>
+  <div>{{item.title}}</div>
+  <div>{{item.created_at | date:"dd.MM.YYYY"}}</div>
+  <div style="padding: 3px;">
+    <div [ngClass]="[item.completed ? 'active' : '']"  class="check" (click)="toggleComplete()"></div>
+  </div>
+</div>

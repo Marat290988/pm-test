@@ -7,3 +7,11 @@ header {
   background-color: #222b5b;
   margin-bottom: 10px;
 }
+
+.logout {
+  margin-left: auto;
+  border: 1px solid #425ce7;
+  padding: 3px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}

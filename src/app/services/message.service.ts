@@ -7,6 +7,9 @@ export class MessageService {
   public isShow = false;
   public message = '';
   public showMessage(message: string) {
+    setTimeout(() => {
+      this.hideMessage();
+    }, 5000);
     this.message = message;
     this.isShow = true;
   }

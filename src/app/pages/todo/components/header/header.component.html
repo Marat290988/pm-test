@@ -1,0 +1,9 @@
+<header>
+  <div *ngIf="userService.user">
+    <fa-icon [icon]="userIcon"></fa-icon>
+    {{userService.user.username}}
+  </div>
+  <div class="logout" (click)="userService.logout()">
+    LOGOUT
+  </div>
+</header>

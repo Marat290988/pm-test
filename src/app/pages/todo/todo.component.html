@@ -1,4 +1,10 @@
 <app-header></app-header>
-<div>
-  TODO
+<div class="todo-container">
+  <ng-container *ngFor="let item of todoList let index = index">
+    <app-todo-item
+      [item]="item"
+      [index]="index"
+    >
+    </app-todo-item>
+  </ng-container>
 </div>
