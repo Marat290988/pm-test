@@ -1,1 +1,7 @@
+<div class="loading" *ngIf="spinnerService.isLoading">
+  <app-spinner></app-spinner>
+</div>
+<div class="message" *ngIf="messageService.isShow">
+  <div>{{messageService.message}}</div>
+</div>
 <router-outlet></router-outlet>

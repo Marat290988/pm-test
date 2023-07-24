@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { AuthComponent } from './auth.compoennt';
+import { ReactiveFormsModule } from "@angular/forms";
+import { AuthComponent } from './auth.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,6 +10,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',

@@ -4,3 +4,49 @@
   align-items: center;
   justify-content: center;
 }
+
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+  margin-top: 5px;
+  background-color: #1b1a43;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding: 4px 5px;
+  color: #878787;
+  border-radius: 5px;
+}
+
+.auth-inputs-container {
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  border: 3px solid #1b1a43;
+  border-radius: 5px;
+}
+
+.input-row {
+  margin-bottom: 10px;
+}
+
+.error {
+  font-size: 12px;
+  color: #ad1212;
+  min-height: 15px;
+}
+
+.submit {
+  margin: 0 auto;
+  display: block;
+  color: #fff;
+  background-color: #435ce7;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

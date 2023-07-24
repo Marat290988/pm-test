@@ -1,13 +1,22 @@
 <div class="auth-page">
   <div class="auth-inputs-container">
-    <div class="input-row">
-      <label for="email">EMAIL:</label>
-      <input type="email" id="email">
-      <div>Incorrect value</div>
-    </div>
-    <div class="input-row">
-      <label for="email">PASSWORD:</label>
-      <input type="password" id="password">
-    </div>
+    <form [formGroup]="formGroup" (submit)="onSubmit()">
+      <div class="input-row">
+        <label for="email">EMAIL:</label>
+        <input formControlName="email" type="email" id="email">
+        <div class="error" >
+          <span
+            *ngIf="formGroup.hasError('email', 'email') && !formGroup.get('email')!.untouched || formGroup.hasError('required', 'email') && !formGroup.get('email')!.untouched"
+          >
+            Incorrect value
+          </span>
+        </div>
+      </div>
+      <div class="input-row">
+        <label for="email">PASSWORD:</label>
+        <input formControlName="password" type="password" id="password">
+      </div>
+      <button class="submit" [disabled]="formGroup.invalid">SUBMIT</button>
+    </form>
   </div>
 </div>

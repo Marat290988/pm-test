@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auth/auth.module')
       .then(module => module.AuthModule)
   },
-  { path: '**', redirectTo: '/auth', pathMatch: 'full'}
+  { path: '**', redirectTo: 'auth', pathMatch: 'full'}
 ];
 
 @NgModule({

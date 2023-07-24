@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './pages/auth/auth.module';
 import { TodoModule } from './pages/todo/todo.module';
+import { SpinnerComponent } from './ui/spinner/spinner.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    TodoModule
+    TodoModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
