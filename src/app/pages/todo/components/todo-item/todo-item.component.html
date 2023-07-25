@@ -1,8 +1,26 @@
 <div class="grid">
   <div>{{index}}</div>
-  <div>{{item.title}}</div>
+  <div class="todo-title" [ngClass]="[title === '' ? 'error' : '']">
+    <div class="edit-icon">
+      <fa-icon (click)="editTodo()" *ngIf="mode === 'edit'" [icon]="iconPen"></fa-icon>
+      <fa-icon (click)="applyTodo()" *ngIf="mode === 'apply'" [icon]="iconCheck"></fa-icon>
+    </div>
+    <input type="text" [readonly]="mode === 'edit'" [(ngModel)]="title">
+  </div>
   <div>{{item.created_at | date:"dd.MM.YYYY"}}</div>
-  <div style="padding: 3px;">
-    <div [ngClass]="[item.completed ? 'active' : '']"  class="check" (click)="toggleComplete()"></div>
+  <div style="padding: 3px; display: flex; align-items: center;">
+    <div [title]="[item.completed ? 'Done' : 'Not done']" [ngClass]="[item.completed ? 'active' : '']"  class="check" (click)="toggleComplete()"></div>
+  </div>
+  <div style="padding-top: 3px; cursor: pointer;" (click)="onClickRemove()">
+    <fa-icon [icon]="iconTrash"></fa-icon>
+  </div>
+</div>
+<div class="modal" *ngIf="isSure">
+  <div>
+    <div style="text-align: center;">Are you sure?</div>
+    <div style="display: flex; justify-content: space-around;">
+      <div class="btn" (click)="yes()">YES</div>
+      <div class="btn" (click)="no()">NO</div>
+    </div>
   </div>
 </div>

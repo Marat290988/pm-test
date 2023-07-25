@@ -29,4 +29,17 @@ export class TodoComponent {
       }
     })
   }
+
+  updateList() {
+    this.spinner.showLoading();
+    this.todoService.getAll().pipe(take(1)).subscribe({
+      next: res => {
+        this.todoList = res;
+        this.spinner.hideLoading();
+      },
+      error: err => {
+        this.spinner.hideLoading();
+      }
+    })
+  }
 }

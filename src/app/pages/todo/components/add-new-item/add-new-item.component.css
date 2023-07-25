@@ -5,22 +5,6 @@
   grid-gap: 10px;
 }
 
-.check {
-  min-width: 15px;
-  max-width: 15px;
-  min-height: 15px;
-  max-height: 15px;
-  height: 100%;
-  background-color: #629ac6;
-  cursor: pointer;
-  border-radius: 50%;
-  border: 1px solid #629ac6
-}
-
-.check.active {
-  background-color: blue;
-}
-
 input {
   border: none;
   outline: none;
@@ -39,12 +23,6 @@ input {
 
 .todo-title.error {
   border: 1px solid #850505;
-}
-
-.edit-icon {
-  position: absolute;
-  right: 6px;
-  cursor: pointer;
 }
 
 .modal {

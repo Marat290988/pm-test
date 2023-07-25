@@ -3,8 +3,13 @@
   <ng-container *ngFor="let item of todoList let index = index">
     <app-todo-item
       [item]="item"
-      [index]="index"
+      [index]="index+1"
+      (updateList)="updateList()"
     >
     </app-todo-item>
   </ng-container>
+  <app-add-new-item
+    (updateList)="updateList()"
+  >
+  </app-add-new-item>
 </div>

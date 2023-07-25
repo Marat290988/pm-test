@@ -1,0 +1,15 @@
+<div class="grid">
+  <div style="font-size: 20px; padding-top: 2px; cursor: pointer;" (click)="startAdd()"><fa-icon [icon]="iconPlus"></fa-icon></div>
+  <div class="todo-title" [ngClass]="[title === '' && !notTouch ? 'error' : '']">
+    <input type="text" [(ngModel)]="title" (input)="touch()">
+  </div>
+</div>
+<div class="modal" *ngIf="isSure">
+  <div>
+    <div style="text-align: center;">Are you sure?</div>
+    <div style="display: flex; justify-content: space-around;">
+      <div class="btn" (click)="yes()">YES</div>
+      <div class="btn" (click)="no()">NO</div>
+    </div>
+  </div>
+</div>

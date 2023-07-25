@@ -34,4 +34,12 @@ export class TodoService {
   editData(item: TodoItem, id: string) {
     return this.http.put(`/api/todo/${id}/`, item);
   }
+
+  removeData(id: string) {
+    return this.http.delete(`/api/todo/${id}/`);
+  }
+
+  addNewData(item: TodoItem) {
+    return this.http.post(`/api/todo/`, item);
+  }
 }

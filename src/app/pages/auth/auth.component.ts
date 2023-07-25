@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Title } from "@angular/platform-browser";
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
 import { SpinnerService } from "src/app/services/spinner.service";
 import { User, UserService } from "src/app/services/user.service";
 
@@ -37,24 +38,27 @@ export class AuthComponent implements OnInit {
 
   onSubmit() {
     this.spinnerService.showLoading();
-    this.userService.login(this.formGroup.value).subscribe({
-      next: (res) => {
-        const user: User = res.body as User;
-        this.userService.setUser(user);
-        if (user.token) {
-          this.router.navigate(['/']);
+    try {
+      this.userService.login(this.formGroup.value).pipe(take(1)).subscribe({
+        next: (res) => {
+          const user: User = res.body as User;
+          this.userService.setUser(user);
+          if (user.token) {
+            this.router.navigate(['/']);
+          }
+        },
+        error: err => {
+          // this.messageService.showMessage(err.message);
+          setTimeout(() => {
+            this.messageService.hideMessage();
+          }, 5000);
+          this.spinnerService.hideLoading();
+        },
+        complete: () => {
+          this.spinnerService.hideLoading();
         }
-      },
-      error: err => {
-        this.messageService.showMessage(err.message);
-        setTimeout(() => {
-          this.messageService.hideMessage();
-        }, 5000);
-        this.spinnerService.hideLoading();
-      },
-      complete: () => {
-        this.spinnerService.hideLoading();
-      }
-    })
+      })
+    } catch(e) {}
+
   }
 }

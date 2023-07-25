@@ -6,12 +6,15 @@ import { authGuard } from './../../../utils/auth.guard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './components/header/header.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { FormsModule } from '@angular/forms';
+import { AddNewItemComponent } from './components/add-new-item/add-new-item.component';
 
 @NgModule({
   declarations: [
     TodoComponent,
     HeaderComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    AddNewItemComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,8 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
         canActivate: [authGuard]
       }
     ]),
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ]
 
 })
